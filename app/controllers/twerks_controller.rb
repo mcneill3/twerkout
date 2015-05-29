@@ -1,11 +1,15 @@
 class TwerksController < ApplicationController
+
   def index
+    @twerks = Twerk.all
   end
 
   def new
+    @twerk = Twerk.new
   end
 
   def show
+    @twerk = Twerk.find(params[:id])
   end
 
   def create
@@ -18,7 +22,7 @@ class TwerksController < ApplicationController
   private
 
   def twerk_params
-    params.require(:twerk).permit(:title, :text)
+    params.require(:twerk).permit(:title, :body)
   end
 
 end
