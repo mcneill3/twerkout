@@ -27,6 +27,9 @@ gem 'pry-rails', group: [:development, :test]
 
 gem 'bootstrap-sass'
 
+gem 'twitter', '~> 5.3.1'
+gem 'omniauth-twitter', '~> 1.0.1'
+
 group :development do
 
   gem 'better_errors'
