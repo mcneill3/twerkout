@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'tweets/new'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
 
-  get 'tweets/create'
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  resources :tweets, only: [:new, :create]
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
 
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'home/show'
+  root to: 'home#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :twerks
 
-  root 'twerks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

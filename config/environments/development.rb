@@ -29,6 +29,10 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
+
+  config.twitter_key = "89VeqsBQ6H50yaklJeWGvwjJZ"
+  config.twitter_secret = "GoZoTVvs0Pw3xhRXiykLB8dZtlO0xXKCs0RbTNWa5cJ8OAmdch"
+
   config.assets.digest = true
 
   # Adds additional error checking when serving assets at runtime.
